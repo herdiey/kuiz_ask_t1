@@ -3,53 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuiz Interaktif Asas Sains Komputer (ASK) T1 & T2</title>
+    <title>Kuiz Interaktif ASK (Tingkatan 1)</title>
     <style>
         :root {
-            --primary: #4F46E5;
-            --primary-hover: #4338CA;
-            --bg: #F3F4F6;
-            --card-bg: #FFFFFF;
-            --text: #1F2937;
+            --bg-color: #0F172A;
+            --card-bg: #1E293B;
+            --card-inner: #0F172A;
+            --primary: #6366F1;
+            --primary-hover: #4F46E5;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: #334155;
             --success: #10B981;
             --danger: #EF4444;
-            --border: #E5E7EB;
+            --badge-bg: #D97706;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); padding: 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { width: 100%; max-width: 700px; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); padding: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
         .hidden { display: none !important; }
+
+        .header-tag { text-align: center; font-size: 11px; text-transform: uppercase; tracking: 1px; letter-spacing: 1.5px; color: #818CF8; font-weight: 700; margin-bottom: 8px; }
+        h1 { text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 24px; color: #FFFFFF; }
         
-        h1, h2 { text-align: center; color: var(--primary); margin-bottom: 20px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; }
-        input[type="text"] { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
-        
-        .btn { display: inline-block; width: 100%; padding: 12px 20px; background-color: var(--primary); color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
-        .btn:hover { background-color: var(--primary-hover); }
-        .btn-secondary { background-color: #6B7280; }
-        .btn-secondary:hover { background-color: #4B5563; }
-        
-        .progress-bar { width: 100%; background: var(--border); height: 10px; border-radius: 5px; margin-bottom: 20px; overflow: hidden; }
-        .progress { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
-        
-        .code-block { background: #1E293B; color: #F8FAFC; padding: 15px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; margin: 15px 0; font-size: 14px; }
-        
-        .options { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
-        .option-btn { padding: 14px; border: 2px solid var(--border); background: white; border-radius: 8px; text-align: left; font-size: 15px; cursor: pointer; transition: all 0.2s; }
-        .option-btn:hover { border-color: var(--primary); background: #EEF2FF; }
-        .option-btn.correct { background: #D1FAE5; border-color: var(--success); color: #065F46; font-weight: bold; }
-        .option-btn.incorrect { background: #FEE2E2; border-color: var(--danger); color: #991B1B; font-weight: bold; }
-        
-        .feedback { padding: 15px; border-radius: 6px; margin-top: 15px; font-size: 15px; }
-        .feedback.correct { background: #D1FAE5; color: #065F46; border: 1px solid var(--success); }
-        .feedback.incorrect { background: #FEE2E2; color: #991B1B; border: 1px solid var(--danger); }
-        
-        .certificate { border: 8px double var(--primary); padding: 40px; text-align: center; background: #FFF; border-radius: 8px; position: relative; margin-top: 20px; }
-        .certificate h2 { font-size: 28px; color: var(--primary); }
-        .certificate .name { font-size: 24px; font-weight: bold; text-decoration: underline; margin: 15px 0; color: #1E1B4B; }
-        
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-muted); font-weight: 500; }
+        input[type="text"] { width: 100%; padding: 14px; background: var(--card-inner); border: 1px solid var(--border-color); border-radius: 10px; color: #FFF; font-size: 15px; outline: none; transition: border 0.2s; }
+        input[type="text"]:focus { border-color: var(--primary); }
+
+        .btn { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-top: 10px; }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #334155; color: #F1F5F9; }
+        .btn-secondary:hover { background: #475569; }
+
+        .top-info { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-muted); font-weight: 600; margin-bottom: 12px; }
+        .progress-bar { width: 100%; background: #334155; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+        .progress { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+
+        .question-card { background: var(--card-inner); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .section-badge { display: inline-block; background: rgba(217, 119, 6, 0.2); color: #FBBF24; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(217, 119, 6, 0.3); }
+        .question-text { font-size: 16px; font-weight: 600; line-height: 1.5; color: #F8FAFC; }
+
+        .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .option-btn { width: 100%; padding: 14px 18px; background: var(--card-inner); border: 1px solid var(--border-color); border-radius: 10px; color: #CBD5E1; text-align: left; font-size: 15px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
+        .option-btn:hover { border-color: var(--primary); background: #1E1B4B; color: #FFF; }
+        .option-btn.selected { border-color: var(--primary); background: #1E1B4B; }
+        .option-btn.correct { background: rgba(16, 185, 129, 0.15); border-color: var(--success); color: #34D399; font-weight: 700; }
+        .option-btn.incorrect { background: rgba(239, 68, 68, 0.15); border-color: var(--danger); color: #FCA5A5; font-weight: 700; }
+
+        .feedback { padding: 16px; border-radius: 10px; margin-bottom: 20px; font-size: 14px; line-height: 1.5; }
+        .feedback.correct { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); color: #34D399; }
+        .feedback.incorrect { background: rgba(239, 68, 68, 0.1); border: 1px solid var(--danger); color: #FCA5A5; }
+
+        /* Sijil Dark Mode / Print Friendly */
+        .certificate { background: #FFFFFF; color: #1E293B; border: 8px double #4F46E5; padding: 35px; text-align: center; border-radius: 12px; margin-top: 15px; }
+        .certificate h2 { color: #4F46E5; font-size: 26px; }
+        .certificate .name { font-size: 22px; font-weight: 800; text-decoration: underline; margin: 15px 0; color: #0F172A; }
+
         @media print {
             body * { visibility: hidden; }
             #certificate-screen, #certificate-screen * { visibility: visible; }
@@ -63,40 +74,53 @@
 <div class="container">
     <!-- Skrin Mula -->
     <div id="start-screen">
-        <h1>Kuiz Interaktif ASK T1 & T2</h1>
-        <p style="text-align: center; margin-bottom: 20px;">Uji kepakaran anda dalam 30 soalan Asas Sains Komputer!</p>
+        <div class="header-tag">Asas Sains Komputer (Tingkatan 1 & 2)</div>
+        <h1>Kuiz Interaktif ASK</h1>
+        
         <div class="form-group">
-            <label for="student-name">Nama Penuh Murid:</label>
-            <input type="text" id="student-name" placeholder="Contoh: Muhammad Ali bin Ahmad" required>
+            <label for="student-name">Nama Penuh Murid</label>
+            <input type="text" id="student-name" placeholder="Contoh: Muhammad Ali bin Ahmad" autocomplete="off">
         </div>
         <div class="form-group">
-            <label for="student-class">Kelas:</label>
-            <input type="text" id="student-class" placeholder="Contoh: 1 Ibnu Sina" required>
+            <label for="student-class">Kelas</label>
+            <input type="text" id="student-class" placeholder="Contoh: 1 Ibnu Sina" autocomplete="off">
         </div>
         <button class="btn" onclick="startQuiz()">Mula Kuiz</button>
     </div>
 
     <!-- Skrin Soalan -->
     <div id="quiz-screen" class="hidden">
-        <div class="progress-bar"><div class="progress" id="progress"></div></div>
-        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 10px;">
+        <div class="header-tag">Asas Sains Komputer (Tingkatan 1 & 2)</div>
+        <h1 style="font-size: 20px; margin-bottom: 15px;">Kuiz Interaktif ASK</h1>
+
+        <div class="top-info">
             <span id="question-number">Soalan 1 / 30</span>
             <span id="score-tracker">Markah: 0</span>
         </div>
-        <div id="question-text" style="font-size: 18px; font-weight: 600;"></div>
-        <div id="code-container"></div>
+        <div class="progress-bar"><div class="progress" id="progress"></div></div>
+
+        <div class="question-card">
+            <div class="section-badge" id="section-badge">Bahagian: ASK</div>
+            <div class="question-text" id="question-text"></div>
+        </div>
+
         <div class="options" id="options-container"></div>
         <div id="feedback-container" class="hidden"></div>
-        <button id="next-btn" class="btn hidden" onclick="nextQuestion()">Soalan Seterusnya</button>
+        
+        <button id="action-btn" class="btn" onclick="handleAction()">Semak Jawapan</button>
     </div>
 
     <!-- Skrin Keputusan -->
     <div id="result-screen" class="hidden">
-        <h2>Keputusan Kuiz</h2>
-        <p style="text-align: center; font-size: 20px; margin-bottom: 10px;" id="final-score-text"></p>
-        <p style="text-align: center; margin-bottom: 20px;" id="result-message"></p>
+        <div class="header-tag">Keputusan Akhir</div>
+        <h1>Tamat Kuiz!</h1>
         
-        <div style="display: flex; gap: 10px; flex-direction: column;">
+        <div class="question-card" style="text-align: center;">
+            <p style="font-size: 18px; font-weight: 700; color: #818CF8;" id="final-score-text"></p>
+            <p style="margin-top: 10px; color: var(--text-muted);" id="result-message"></p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
             <button class="btn" onclick="viewCertificate()">Lihat Sijil Pencapaian</button>
             <button class="btn btn-secondary" id="retry-incorrect-btn" onclick="retryIncorrect()">Ulang Soalan Salah Sahaja</button>
             <button class="btn btn-secondary" onclick="restartFullQuiz()">Ulang Semua Soalan</button>
@@ -107,16 +131,16 @@
     <div id="certificate-screen" class="hidden">
         <div class="certificate">
             <h2>SIJIL PENCAPAIAN</h2>
-            <p style="margin-top: 15px;">Dengan ini disahkan bahawa</p>
+            <p style="margin-top: 10px; font-size: 14px;">Dengan ini disahkan bahawa</p>
             <div class="name" id="cert-name">NAMA MURID</div>
-            <p>Dari Kelas: <strong id="cert-class">KELAS</strong></p>
-            <p style="margin-top: 15px;">Telah berjaya menyempurnakan</p>
-            <h3 style="color: var(--primary); margin: 10px 0;">Kuiz Interaktif Asas Sains Komputer (ASK)</h3>
-            <p>Dengan Pencapaian Markah:</p>
-            <h2 id="cert-score" style="color: var(--success); font-size: 32px; margin: 10px 0;">0%</h2>
-            <p id="cert-date" style="font-size: 12px; color: #6B7280; margin-top: 20px;"></p>
+            <p style="font-size: 14px;">Dari Kelas: <strong id="cert-class">KELAS</strong></p>
+            <p style="margin-top: 15px; font-size: 14px;">Telah berjaya menyempurnakan</p>
+            <h3 style="color: #4F46E5; margin: 8px 0; font-size: 18px;">Kuiz Interaktif Asas Sains Komputer</h3>
+            <p style="font-size: 14px;">Pencapaian Markah:</p>
+            <h2 id="cert-score" style="color: #10B981; font-size: 36px; margin: 8px 0;">0%</h2>
+            <p id="cert-date" style="font-size: 12px; color: #64748B; margin-top: 15px;"></p>
         </div>
-        <div class="no-print" style="margin-top: 20px; display: flex; gap: 10px;">
+        <div class="no-print" style="margin-top: 15px; display: flex; gap: 10px;">
             <button class="btn" onclick="window.print()">Cetak / Simpan PDF</button>
             <button class="btn btn-secondary" onclick="backToResult()">Kembali</button>
         </div>
@@ -126,189 +150,220 @@
 <script>
 const quizData = [
     {
+        section: "Bahagian 1: Pemikiran Komputasional",
         question: "Apakah tujuan utama teknik Leraian (Decomposition) dalam Pemikiran Komputasional?",
-        options: ["A. Menyembunyikan butiran yang tidak penting", "B. Memecahkan masalah besar kepada bahagian-bahagian kecil", "C. Mengenal pasti corak yang sama", "D. Membina model penyelesaian"],
+        options: ["A) Menyembunyikan butiran yang tidak penting", "B) Memecahkan masalah besar kepada bahagian-bahagian kecil", "C) Mengenal pasti corak yang sama", "D) Membina model penyelesaian"],
         answer: 1,
-        explanation: "Teknik Leraian memecahkan masalah kompleks kepada bahagian-bahagian kecil supaya lebih mudah diurus dan diselesaikan."
+        explanation: "Teknik Leraian memecahkan masalah kompleks kepada bahagian-bahagian kecil supaya lebih mudah diurus."
     },
     {
-        question: "Antara berikut, yang manakah merupakan contoh pengecaman corak (pattern recognition)?",
-        options: ["A. Mengabaikan warna kereta semasa mengira bilangan kereta", "B. Menyusun langkah-langkah membuat teh panas", "C. Mengetahui semua simptom demam adalah serupa", "D. Membahagikan tugasan projek kepada 3 bahagian"],
+        section: "Bahagian 1: Pemikiran Komputasional",
+        question: "Antara berikut, yang manakah contoh pengecaman corak (pattern recognition)?",
+        options: ["A) Mengabaikan warna kereta semasa mengira bilangan kereta", "B) Menyusun langkah-langkah membuat teh panas", "C) Mengetahui semua simptom demam adalah serupa", "D) Membahagikan tugasan projek kepada 3 bahagian"],
         answer: 2,
-        explanation: "Pengecaman corak melibatkan pemerhatian kesamaan atau trend yang berulang pada masalah yang berbeza."
+        explanation: "Pengecaman corak melibatkan pemerhatian kesamaan atau trend yang berulang."
     },
     {
+        section: "Bahagian 1: Pemikiran Komputasional",
         question: "Teknik Peniskalaan (Abstraction) fokus kepada:",
-        options: ["A. Menentukan aspek penting dan mengabaikan butiran tidak penting", "B. Menyusun algoritma secara berurutan", "C. Memecahkan masalah kepada sub-masalah", "D. Menguji kod atur cara untuk mencari ralat"],
+        options: ["A) Menentukan aspek penting dan mengabaikan butiran tidak penting", "B) Menyusun algoritma secara berurutan", "C) Memecahkan masalah kepada sub-masalah", "D) Menguji kod atur cara untuk mencari ralat"],
         answer: 0,
-        explanation: "Peniskalaan membolehkan kita fokus kepada maklumat penting sahaja untuk menyelesaikan masalah tanpa terganggu oleh butiran remeh."
+        explanation: "Peniskalaan membolehkan kita fokus kepada maklumat penting sahaja."
     },
     {
+        section: "Bahagian 2: Perduaan",
         question: "Tukar nombor perpuluhan 119 kepada nombor perduaan (binary):",
-        options: ["A. 01110111", "B. 01101111", "C. 01110110", "D. 01011111"],
+        options: ["A) 01110111", "B) 01101111", "C) 01110110", "D) 01011111"],
         answer: 0,
-        explanation: "119 = 64 + 32 + 16 + 4 + 2 + 1 = 01110111 dalam asas 2 (8-bit)."
+        explanation: "119 = 64 + 32 + 16 + 4 + 2 + 1 = 01110111₂."
     },
     {
+        section: "Bahagian 2: Perduaan",
         question: "Apakah nilai perpuluhan bagi nombor perduaan 10101001₂?",
-        options: ["A. 169", "B. 165", "C. 171", "D. 161"],
+        options: ["A) 169", "B) 165", "C) 171", "D) 161"],
         answer: 0,
-        explanation: "128 + 0 + 32 + 0 + 8 + 0 + 0 + 1 = 169."
+        explanation: "128 + 32 + 8 + 1 = 169."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Tag HTML manakah yang digunakan untuk mencipta tajuk terbesar pada halaman web?",
-        options: ["A. <head>", "B. <h6>", "C. <h1>", "D. <header>"],
-        answer: 2,
-        explanation: "Tag <h1> digunakan untuk tajuk paling utama/besar, manakala <h6> adalah paling kecil."
+        options: ["A) <h6>", "B) <h1>", "C) <head>", "D) <header>"],
+        answer: 1,
+        explanation: "Tag <h1> digunakan untuk tajuk paling besar dalam HTML."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Tag HTML yang manakah betul untuk memasukkan pautan (hyperlink)?",
-        options: ["A. <a href='url'>Nama Pautan</a>", "B. <link src='url'>", "C. <url='url'>", "D. <a src='url'>"],
+        options: ["A) <a href='url'>Pautan</a>", "B) <link src='url'>", "C) <url='url'>", "D) <a src='url'>"],
         answer: 0,
-        explanation: "Tag <a> dengan atribut 'href' digunakan khas untuk membina pautan hyperlink dalam HTML."
+        explanation: "Tag <a> bersama atribut href digunakan untuk pautan."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Apakah fungsi atribut 'alt' pada tag <img> dalam HTML?",
-        options: ["A. Mengubah saiz imej", "B. Memaparkan teks alternatif jika imej gagal dimuatkan", "C. Menukar warna latar belakang imej", "D. Memutar imej"],
+        options: ["A) Mengubah saiz imej", "B) Memaparkan teks alternatif jika imej gagal dimuatkan", "C) Menukar warna latar belakang", "D) Memutar imej"],
         answer: 1,
-        explanation: "Atribut 'alt' menyediakan teks alternatif untuk ketercapaian dan apabila imej tidak dapat dipaparkan."
+        explanation: "Atribut 'alt' menyediakan teks alternatif jika imej tidak muncul."
     },
     {
+        section: "Bahagian 4: Ralat & Algoritma",
         question: "Apakah jenis ralat yang berlaku apabila atur cara berjalan tanpa terhenti tetapi mengeluarkan keputusan yang salah?",
-        options: ["A. Ralat Sintaks", "B. Ralat Logik", "C. Ralat Masa Larian (Run-time error)", "D. Ralat Hardware"],
+        options: ["A) Ralat Sintaks", "B) Ralat Logik", "C) Ralat Masa Larian (Run-time error)", "D) Ralat Hardware"],
         answer: 1,
-        explanation: "Ralat Logik berlaku disebabkan kesilapan pada algoritma/formula, menyebabkan hasil tidak tepat walaupun tiada mesej ralat dipaparkan."
+        explanation: "Ralat Logik menghasilkan keputusan salah tanpa mengeluarkan amaran ralat."
     },
     {
+        section: "Bahagian 4: Ralat & Algoritma",
         question: "Ralat Sintaks berlaku disebabkan oleh:",
-        options: ["A. Pembahagian dengan nombor sifar", "B. Pelanggaran aturan tatabahasa bahasa pengaturcaraan", "C. Formula matematik yang salah", "D. Kegagalan perkakasan komputer"],
+        options: ["A) Pembahagian dengan nombor sifar", "B) Pelanggaran aturan tatabahasa bahasa pengaturcaraan", "C) Formula matematik yang salah", "D) Kegagalan perkakasan"],
         answer: 1,
-        explanation: "Ralat Sintaks berpunca daripada ejaan, tanda baca, atau struktur kod yang salah mengikut aturan bahasa pengaturcaraan."
+        explanation: "Ralat sintaks berlaku akibat kesalahan format atau ejaan kod."
     },
     {
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
         question: "Dalam Scratch, blok manakah yang digunakan untuk membuat keputusan berasaskan syarat?",
-        options: ["A. repeat until", "B. if...then...else", "C. forever", "D. wait 1 secs"],
+        options: ["A) repeat until", "B) if...then...else", "C) forever", "D) wait 1 secs"],
         answer: 1,
-        explanation: "Blok 'if...then...else' merupakan struktur kawalan pilihan untuk melaksanakan tindakan berdasarkan syarat."
+        explanation: "Blok 'if...then...else' ialah struktur kawalan pilihan."
     },
     {
-        question: "Perhatikan pseudokod berikut:\n\n1. Mula\n2. Setkan umur = 15\n3. JIKA umur >= 18 MAKA\n4.     Cetak 'Layak Undi'\n5. JIKA TIDAK\n6.     Cetak 'Belum Layak'\n7. Tamat\n\nApakah output bagi pseudokod di atas?",
-        options: ["A. Layak Undi", "B. Belum Layak", "C. Umur 15", "D. Tiada Output"],
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
+        question: "Jika umur = 15, apakah output bagi pseudokod: JIKA umur >= 18 MAKA cetak 'Layak' JIKA TIDAK cetak 'Belum Layak'?",
+        options: ["A) Layak", "B) Belum Layak", "C) Umur 15", "D) Tiada Output"],
         answer: 1,
-        explanation: "Kerana nilai umur (15) adalah kurang daripada 18, blok 'JIKA TIDAK' dilaksanakan dan mencetak 'Belum Layak'."
+        explanation: "15 adalah kurang daripada 18, jadi outputnya 'Belum Layak'."
     },
     {
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
         question: "Apakah fungsi utama pemboleh ubah (variable) dalam pengaturcaraan?",
-        options: ["A. Menyimpan data yang boleh berubah semasa atur cara dijalankan", "B. Menukar warna skrin", "C. Memadam ralat dalam atur cara", "D. Menghentikan atur cara serta-merta"],
+        options: ["A) Menyimpan data yang boleh berubah semasa atur cara dijalankan", "B) Menukar warna skrin", "C) Memadam ralat", "D) Menghentikan atur cara"],
         answer: 0,
-        explanation: "Pemboleh ubah berfungsi seperti 'bekas' dalam ingatan komputer untuk menyimpan nilai data."
+        explanation: "Pemboleh ubah berfungsi menyimpan nilai data."
     },
     {
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
         question: "Antara berikut, yang manakah struktur kawalan ulangan (loop) dalam Scratch?",
-        options: ["A. say 'Hello'", "B. repeat (10)", "C. ask and wait", "D. set size to 100%"],
+        options: ["A) say 'Hello'", "B) repeat (10)", "C) ask and wait", "D) set size to 100%"],
         answer: 1,
-        explanation: "Blok 'repeat (10)' melaksanakan blok kod di dalamnya sebanyak 10 kali secara berulang."
+        explanation: "Blok 'repeat' melaksanakan ulangan arahan."
     },
     {
+        section: "Bahagian 1: Pemikiran Komputasional",
         question: "Pengitaran (Iteration) dalam algoritma bermaksud:",
-        options: ["A. Langkah-langkah yang dilaksanakan secara berurutan", "B. Proses mengulang langkah-langkah tertentu berdasarkan syarat", "C. Memilih antara dua laluan", "D. Penghentian atur cara"],
+        options: ["A) Langkah-langkah yang dilaksanakan secara berurutan", "B) Proses mengulang langkah-langkah tertentu berdasarkan syarat", "C) Memilih antara dua laluan", "D) Penghentian atur cara"],
         answer: 1,
-        explanation: "Pengitaran atau gelungan (looping) ialah proses mengulang satu set arahan."
+        explanation: "Pengitaran ialah proses perulangan (looping)."
     },
     {
+        section: "Bahagian 2: Perduaan",
         question: "Hasil tambah bagi nombor perduaan 1011₂ + 0101₂ ialah:",
-        options: ["A. 10000₂", "B. 1111₂", "C. 10001₂", "D. 1100₂"],
+        options: ["A) 10000₂", "B) 1111₂", "C) 10001₂", "D) 1100₂"],
         answer: 0,
-        explanation: "1011₂ (11) + 0101₂ (5) = 16 perpuluhan = 10000₂."
+        explanation: "11 + 5 = 16 = 10000₂."
     },
     {
+        section: "Bahagian 2: Perduaan",
         question: "Penolakan nombor perduaan 1100₂ - 0101₂ menghasilkan:",
-        options: ["A. 0111₂", "B. 0101₂", "C. 0011₂", "D. 1001₂"],
+        options: ["A) 0111₂", "B) 0101₂", "C) 0011₂", "D) 1001₂"],
         answer: 0,
-        explanation: "1100₂ (12) - 0101₂ (5) = 7 perpuluhan = 0111₂."
+        explanation: "12 - 5 = 7 = 0111₂."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Kod HTML manakah yang digunakan untuk menghasilkan senarai bernombor (ordered list)?",
-        options: ["A. <ul>", "B. <ol>", "C. <li>", "D. <list>"],
+        options: ["A) <ul>", "B) <ol>", "C) <li>", "D) <list>"],
         answer: 1,
-        explanation: "Tag <ol> (Ordered List) digunakan untuk senarai berurut/bernombor, manakala <ul> untuk senarai tidak berurut."
+        explanation: "<ol> diguna untuk Ordered List (bernombor)."
     },
     {
-        question: "Simbol carta alir berbentuk 'Eksagon' atau 'Jajaran Genjang' (Parallelogram) melambangkan:",
-        options: ["A. Mula / Tamat", "B. Proses", "C. Input / Output", "D. Keputusan"],
+        section: "Bahagian 4: Ralat & Algoritma",
+        question: "Simbol carta alir berbentuk 'Jajaran Genjang' (Parallelogram) melambangkan:",
+        options: ["A) Mula / Tamat", "B) Proses", "C) Input / Output", "D) Keputusan"],
         answer: 2,
-        explanation: "Jajaran genjang digunakan khas untuk operasi Input (masukan) dan Output (keluaran)."
+        explanation: "Jajaran genjang melambangkan operasi Input/Output."
     },
+    // SOALAN 20 DENGAN FORMAT TERUS BEBAS ERROR TAG HTML
     {
-        question: "Apakah hasil pemikiran komputasional bagi proses mengecam corak (pattern recognition) dalam penyelesaian masalah?",
+        section: "Bahagian 3: Asas HTML",
+        question: "Antara berikut, tag tajuk HTML yang manakah memaparkan saiz teks paling BESAR?",
         options: [
-            "A. Memecahkan masalah kepada bahagian kecil",
-            "B. Mengenal pasti persamaan atau corak yang berulang",
-            "C. Menyembunyikan butiran yang tidak penting",
-            "D. Membina langkah-langkah penyelesaian"
+            "A) <h6>",
+            "B) <h1>",
+            "C) <head>",
+            "D) <header>"
         ],
         answer: 1,
-        explanation: "Pengecaman corak bertujuan mengenalpasti persamaan, trend, atau corak berulang untuk membolehkan masalah diselesaikan dengan lebih cepat berdasarkan pengalaman lepas."
+        explanation: "Tag <h1> digunakan untuk tajuk utama dengan saiz paling besar. Tag <h6> adalah paling kecil."
     },
     {
-        question: "Antara berikut, manakah skrip Scratch yang akan menggerakkan sprite ke hadapan secara berterusan tanpa henti?",
-        options: ["A. repeat (10) [move 10 steps]", "B. forever [move 10 steps]", "C. if <key pressed?> then [move 10 steps]", "D. wait 1 secs [move 10 steps]"],
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
+        question: "Antara berikut, manakah skrip Scratch yang akan menggerakkan sprite secara berterusan tanpa henti?",
+        options: ["A) repeat (10) [move 10 steps]", "B) forever [move 10 steps]", "C) if <key pressed?> then [move 10 steps]", "D) wait 1 secs"],
         answer: 1,
-        explanation: "Blok 'forever' menyebabkan tindakan di dalamnya diulang selamanya tanpa henti."
+        explanation: "Blok 'forever' mengulang arahan selamanya."
     },
     {
+        section: "Bahagian 2: Perduaan",
         question: "Sistem Nombor Perduaan juga dikenali sebagai:",
-        options: ["A. Sistem Asas 10", "B. Sistem Asas 2", "C. Sistem Asas 8", "D. Sistem Asas 16"],
+        options: ["A) Sistem Asas 10", "B) Sistem Asas 2", "C) Sistem Asas 8", "D) Sistem Asas 16"],
         answer: 1,
-        explanation: "Sistem perduaan hanya menggunakan dua digit iaitu 0 dan 1, dinamakan Asas 2."
+        explanation: "Sistem perduaan dinamakan Asas 2."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Apakah kegunaan CSS dalam pembangunan laman web?",
-        options: ["A. Menyimpan data dalam pangkalan data", "B. Mengatur reka bentuk, gaya dan susun atur halaman HTML", "C. Memproses atur cara di sebelah pelayan", "D. Membina struktur asas dokumen"],
+        options: ["A) Menyimpan data", "B) Mengatur reka bentuk, gaya dan susun atur halaman HTML", "C) Memproses server", "D) Membina struktur asas"],
         answer: 1,
-        explanation: "CSS (Cascading Style Sheets) digunakan untuk menggayakan warna, font, dan susun atur elemen HTML."
+        explanation: "CSS digunakan khas untuk gaya dan reka bentuk visual."
     },
     {
+        section: "Bahagian 4: Ralat & Algoritma",
         question: "Apakah maksud 'Algoritma'?",
-        options: ["A. Bahasa pengaturcaraan komputer", "B. Ralat dalam atur cara", "C. Siri langkah-langkah teratur untuk menyelesaikan masalah", "D. Perkakasan dalaman komputer"],
+        options: ["A) Bahasa pengaturcaraan", "B) Ralat dalam atur cara", "C) Siri langkah teratur untuk menyelesaikan masalah", "D) Perkakasan komputer"],
         answer: 2,
-        explanation: "Algoritma ialah set arahan langkah demi langkah yang logik untuk menyelesaikan sesuatu tugasan."
+        explanation: "Algoritma ialah set langkah teratur menyelesaikan masalah."
     },
     {
-        question: "Apakah fungsi operator '%' (Modulus) dalam kebanyakan bahasa pengaturcaraan?",
-        options: ["A. Mengira peratusan", "B. Mendapatkan baki daripada pembahagian nombor", "C. Mendarab dua nombor", "D. Membahagi nombor secara bulat"],
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
+        question: "Apakah fungsi operator '%' (Modulus) dalam pengaturcaraan?",
+        options: ["A) Mengira peratusan", "B) Mendapatkan baki daripada pembahagian nombor", "C) Mendarab dua nombor", "D) Membahagi nombor"],
         answer: 1,
-        explanation: "Operator Modulus (cth: 7 % 3) mengembalikan baki pembahagian (iaitu 1)."
+        explanation: "Modulus memberikan baki hasil pembahagian."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Antara berikut, tag HTML manakah yang TIDAK memerlukan tag penutup?",
-        options: ["A. <p>", "B. <img>", "C. <div>", "D. <html>"],
+        options: ["A) <p>", "B) <img>", "C) <div>", "D) <html>"],
         answer: 1,
-        explanation: "Tag <img> ialah elemen 'self-closing' (elemen kosong) dan tidak memerlukan tag penutup </img>."
+        explanation: "Tag <img> ialah elemen kosong (self-closing)."
     },
     {
+        section: "Bahagian 5: Scratch & Pengaturcaraan",
         question: "Apakah hasil operasi logik AND jika Input A = BENAR dan Input B = PALSU?",
-        options: ["A. BENAR", "B. PALSU", "C. Ralat", "D. Tiada Nilai"],
+        options: ["A) BENAR", "B) PALSU", "C) Ralat", "D) Tiada Nilai"],
         answer: 1,
-        explanation: "Operasi AND hanya menghasilkan BENAR jika KEDUA-DUA input adalah BENAR."
+        explanation: "AND perlukan kedua-duanya BENAR untuk hasilkan BENAR."
     },
     {
+        section: "Bahagian 4: Ralat & Algoritma",
         question: "Antara berikut, manakah contoh Ralat Masa Larian (Run-Time Error)?",
-        options: ["A. Lupa meletakkan tanda semicolon", "B. Pembahagian nombor dengan sifar (division by zero)", "C. Salah formula mengira luas segi tiga", "D. Ejaan arahan 'prnt' gantian 'print'"],
+        options: ["A) Lupa semicolon", "B) Pembahagian nombor dengan sifar (division by zero)", "C) Salah formula matematik", "D) Ejaan arahan salah"],
         answer: 1,
-        explanation: "Ralat Masa Larian berlaku semasa atur cara sedang dijalankan, contohnya apabila komputer cuba membahagi nombor dengan 0."
+        explanation: "Pembahagian dengan sifar menyebabkan program terhenti secara tiba-tiba (Run-time)."
     },
     {
+        section: "Bahagian 3: Asas HTML",
         question: "Format fail imej manakah yang menyokong latar belakang lutsinar (transparent)?",
-        options: ["A. JPEG", "B. PNG", "C. BMP", "D. MP4"],
+        options: ["A) JPEG", "B) PNG", "C) BMP", "D) MP4"],
         answer: 1,
-        explanation: "Format PNG menyokong saluran kejelasan (alpha channel) untuk latar belakang lutsinar."
+        explanation: "PNG menyokong ketelusan (transparency)."
     },
     {
+        section: "Bahagian 4: Ralat & Algoritma",
         question: "Apakah fasa PERTAMA dalam kitar hayat pembangunan atur cara?",
-        options: ["A. Reka Bentuk Atur Cara", "B. Analisis Masalah", "C. Pengkodan", "D. Pengujian dan Nyahrulat"],
+        options: ["A) Reka Bentuk Atur Cara", "B) Analisis Masalah", "C) Pengkodan", "D) Pengujian"],
         answer: 1,
-        explanation: "Fasa pertama ialah Analisis Masalah untuk mengenalpasti input, proses, dan output yang diperlukan."
+        explanation: "Fasa pertama sentiasa bermula dengan Analisis Masalah."
     }
 ];
 
@@ -317,14 +372,20 @@ let currentIndex = 0;
 let score = 0;
 let studentName = "";
 let studentClass = "";
+let selectedOption = null;
 let userAnswers = [];
+let isAnswered = false;
+
+function escapeHTML(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
 function startQuiz() {
     studentName = document.getElementById("student-name").value.trim();
     studentClass = document.getElementById("student-class").value.trim();
     
     if (!studentName || !studentClass) {
-        alert("Sila masukkan Nama Penuh dan Kelas anda terlebih dahulu.");
+        alert("Sila masukkan Nama Penuh dan Kelas anda.");
         return;
     }
     
@@ -340,6 +401,8 @@ function startQuiz() {
 }
 
 function showQuestion() {
+    isAnswered = false;
+    selectedOption = null;
     const q = currentQuestions[currentIndex];
     const totalQ = currentQuestions.length;
     
@@ -347,50 +410,74 @@ function showQuestion() {
     document.getElementById("score-tracker").innerText = `Markah: ${score}`;
     document.getElementById("progress").style.width = `${((currentIndex) / totalQ) * 100}%`;
     
+    document.getElementById("section-badge").innerText = q.section || "Asas Sains Komputer";
     document.getElementById("question-text").innerText = q.question;
-    document.getElementById("options-container").innerHTML = "";
-    document.getElementById("feedback-container").className = "feedback hidden";
-    document.getElementById("next-btn").classList.add("hidden");
     
+    const container = document.getElementById("options-container");
+    container.innerHTML = "";
+    document.getElementById("feedback-container").className = "feedback hidden";
+    
+    const actionBtn = document.getElementById("action-btn");
+    actionBtn.innerText = "Semak Jawapan";
+    actionBtn.onclick = checkAnswer;
+
     q.options.forEach((opt, idx) => {
         const btn = document.createElement("button");
         btn.className = "option-btn";
-        btn.innerText = opt;
-        btn.onclick = () => selectAnswer(idx);
-        document.getElementById("options-container").appendChild(btn);
+        btn.innerHTML = `<span>${escapeHTML(opt)}</span><span style="border: 1px solid var(--border-color); width: 18px; height: 18px; border-radius: 50%; display: inline-block;"></span>`;
+        btn.onclick = () => selectOption(idx, btn);
+        container.appendChild(btn);
     });
 }
 
-function selectAnswer(selectedIdx) {
-    const q = currentQuestions[currentIndex];
-    const options = document.querySelectorAll(".option-btn");
+function selectOption(idx, btnElement) {
+    if (isAnswered) return;
     
-    options.forEach(btn => btn.style.pointerEvents = "none");
-    
-    const isCorrect = (selectedIdx === q.answer);
-    if (isCorrect) {
-        options[selectedIdx].classList.add("correct");
-        score++;
-    } else {
-        options[selectedIdx].classList.add("incorrect");
-        options[q.answer].classList.add("correct");
+    selectedOption = idx;
+    const allBtns = document.querySelectorAll(".option-btn");
+    allBtns.forEach(b => b.classList.remove("selected"));
+    btnElement.classList.add("selected");
+}
+
+function checkAnswer() {
+    if (selectedOption === null) {
+        alert("Sila pilih satu jawapan dahulu!");
+        return;
     }
     
-    const originalIndex = quizData.indexOf(q);
-    userAnswers[originalIndex] = isCorrect;
+    isAnswered = true;
+    const q = currentQuestions[currentIndex];
+    const allBtns = document.querySelectorAll(".option-btn");
+    
+    allBtns.forEach(b => b.style.pointerEvents = "none");
+    
+    const isCorrect = (selectedOption === q.answer);
+    if (isCorrect) {
+        allBtns[selectedOption].classList.add("correct");
+        score++;
+    } else {
+        allBtns[selectedOption].classList.add("incorrect");
+        allBtns[q.answer].classList.add("correct");
+    }
+    
+    const origIdx = quizData.indexOf(q);
+    userAnswers[origIdx] = isCorrect;
     
     const feedback = document.getElementById("feedback-container");
     feedback.classList.remove("hidden");
     if (isCorrect) {
         feedback.className = "feedback correct";
-        feedback.innerHTML = `<strong>Tahniah! Jawapan Betul.</strong><br>${q.explanation}`;
+        feedback.innerHTML = `<strong>Tahniah! Jawapan Betul.</strong><br>${escapeHTML(q.explanation)}`;
     } else {
         feedback.className = "feedback incorrect";
-        feedback.innerHTML = `<strong>Jawapan Kurang Tepat.</strong><br>${q.explanation}`;
+        feedback.innerHTML = `<strong>Jawapan Kurang Tepat.</strong><br>${escapeHTML(q.explanation)}`;
     }
     
     document.getElementById("score-tracker").innerText = `Markah: ${score}`;
-    document.getElementById("next-btn").classList.remove("hidden");
+    
+    const actionBtn = document.getElementById("action-btn");
+    actionBtn.innerText = (currentIndex < currentQuestions.length - 1) ? "Soalan Seterusnya" : "Lihat Keputusan";
+    actionBtn.onclick = nextQuestion;
 }
 
 function nextQuestion() {
